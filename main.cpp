@@ -3,6 +3,7 @@
 // HW 1: C++ Concept (Classes)
 // 18 September 2017
 
+#include "Collection.h"
 #include <iostream>
 using namespace std;
 
@@ -39,7 +40,7 @@ public:
         return width;
     }
    // function that computes the area of the rectangle
-    int area(){
+    double area(){
         return (length * width);
     }
 // these variables are private so other parts of the program don't inadvertently
@@ -71,10 +72,47 @@ int main()
     rect2.setDims(10000, 7.28375);
     cout << "Rectangle 2 has been changed" << endl;
     cout << "Area of Rectangle 2 is " << rect2.area() << endl;
-    cout << "Area of Rectangle 1 is still " << rect1.area();
+    cout << "Area of Rectangle 1 is still " << rect1.area() << endl;
 
     // each new object (rect1, rect2) that is created from Rectangle has its own copy of the members
     // this way you can manipulate one object and not have to worry about inadvertently changing another
+
+    // this separates the "first" main code from the added portion to test Collection
+    cout << "\n*******************************************************************************" << endl;
+
+	Collection<int> coolList;
+	coolList.isEmpty();
+	coolList.insert(5);
+	coolList.insert(55);
+	coolList.insert(100);
+	coolList.isEmpty();
+	coolList.print();
+	coolList.insert(500);
+	
+	coolList.print();
+	coolList.remove(55);
+	coolList.print();
+	coolList.insert(2);
+	coolList.removeRandom();
+	coolList.insert(34);
+	coolList.insert(101);
+	coolList.insert(102);
+	coolList.print();
+	coolList.removeRandom();
+	coolList.remove(5);
+	coolList.print();
+	coolList.notContained(100);
+	coolList.notContained(34);
+
+	coolList.makeEmpty();
+	cout << "\nEmptied the list!" << endl;
+	coolList.insert(1);
+	coolList.insert(2);
+	coolList.insert(3);
+	coolList.print();
+
+	coolList.notContained(2);
+	coolList.notContained(1000);
 
     return 0;
 }
